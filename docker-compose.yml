@@ -42,8 +42,16 @@ services:
             - "3307:3306"
         volumes:
             - "./data/db/mysql:/var/lib/mysql"
-    memcached:
+            
+    memcached1:
         image: memcached:${MEMCACHED_VERSION}
-        container_name: ${MEMCACHED_HOST}
+        container_name: memcached1
+        ports:
+            - 11211:11211
+            
+     memcached2:
+        image: memcached:${MEMCACHED_VERSION}
+        container_name: memcached2
         ports:
             - 11212:11211
+      
